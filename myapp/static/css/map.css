@@ -1,0 +1,392 @@
+html body {
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #000000;
+    margin: 0;
+    padding: 0;
+    font-size: 2rem;
+    color: #ffffff;
+    height: 100vh;
+    overflow: hidden;
+}
+
+
+
+
+
+.wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    min-height: 0;
+    /* 子要素の高さを制限 */
+    --bs-gutter-x: 0rem;
+}
+
+.zone-list {
+    width: 100%;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    /* IE, Edge 対応
+    -ms-overflow-style: none;
+    /* Firefox 対応 */
+    /* scrollbar-width: none; */
+}
+
+
+
+/* Chrome, Safari 対応 */
+.zone-list::-webkit-scrollbar-thumb {
+    background-color: #3760d0;
+    border-radius: 1rem;
+}
+
+.zone-sidebar {
+    border-right: 2px solid #aaa9a9;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    flex-direction: column;
+    width: 5%;
+    height: auto;
+
+}
+
+/* view_mapのトグルエリア */
+.form-switch {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    padding-left: 0%;
+    font-size: 1vw;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-switch .form-check-input {
+    margin-left: 0%;
+    font-size: 1.5rem;
+}
+
+
+.pn-sidebar {
+    width: 22%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    border-right: 2px solid #aaa9a9;
+}
+
+
+
+.side-top {
+    width: 100%;
+    margin-bottom: 2%;
+    border: #3963d4 solid;
+    padding-top: 1%;
+    padding-bottom: 2%;
+}
+
+.search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-size: 0.9rem;
+    gap: 10%;
+}
+
+
+.serial-search-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.length-search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: #424242;
+    padding-bottom: 5%;
+
+}
+
+.length-search-container label {
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.length-select-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+    white-space: nowrap;
+    text-align: center;
+
+}
+
+.length-search-title {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.search-lbl {
+    text-align: center;
+}
+
+.search-select-box {
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+}
+
+.range-search {
+    width: 100%;
+}
+
+.length-search-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+}
+
+.entry-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+    padding-top: 3%;
+}
+
+.entry-container button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 0.3rem 0.7rem;
+    border: none;
+    border-radius: 5%;
+    /* font-size: 16px; */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+/* クリアボタンのスタイル */
+.entry-container button.clear {
+    background-color: #f44336 !important;
+    /* 赤色 */
+}
+
+.entry-container button.clear:hover {
+    background-color: #d32f2f !important;
+    /* ホバー時に濃い赤色 */
+}
+
+/* 検索ボタンのスタイル */
+.entry-container button.search {
+    background-color: #4CAF50 !important;
+    /* 緑色 */
+}
+
+.entry-container button.search:hover {
+    background-color: #45a049 !important;
+    /* ホバー時に濃い緑色 */
+}
+
+.zone-item {
+    width: 100%;
+    font-size: 1.1vw !important;
+}
+
+.zone-title {
+    font-size: 1.1vw !important;
+    color: #b9b9b9;
+    font-weight: bold;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.allzone {
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+.zone-select {
+    padding: 1rem 0.4rem 1rem 0.4rem;
+    background-color: #bbbbbb;
+    border-radius: 0.5rem;
+    height: auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.pn-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    height: 100%;
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    align-items: center;
+
+}
+
+/* Chrome, Safari 対応 */
+.pn-list::-webkit-scrollbar-thumb {
+    background-color: #3760d0;
+    border-radius: 8px;
+}
+
+
+.pn-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.pn-select {
+    overflow-y: hidden;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    flex-direction: column;
+    /* justify-content: center; */
+    overflow-y: hidden;
+    overflow-x: hidden;
+
+
+}
+
+
+
+.btn {
+    font-size: 1.1rem;
+    color: #ffffff;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.pn-select .btn {
+    width: 90%;
+    font-size: clamp(1px, 0.8vw, 15px);
+    white-space: nowrap;
+}
+
+
+
+/* ボタン押下時の拡大アニメーション */
+button:active {
+    transform: scale(1.1);
+    transition: transform 0.1s;
+}
+
+
+
+/* ヒットしたセルハイライト */
+.blink-highlight {
+    animation: blink-highlight 1s infinite;
+    background-color: rgb(9, 255, 9);
+    /* box-shadow: #7fff00 0px 0px 0.3em; */
+}
+
+
+@keyframes blink-highlight {
+    0% {
+        background-color: rgb(12, 223, 12);
+        box-shadow: #7fff00 0px 0px 0.5em;
+    }
+
+    100% {
+        background-color: transparent;
+    }
+}
+
+
+
+
+.blink-new-in {
+    animation: blink-new-in 1s infinite;
+    background-color: rgba(223, 54, 12, 0.9);
+}
+
+@keyframes blink-new-in {
+    0% {
+        background-color: rgba(223, 54, 12, 0.9);
+        box-shadow: #ff4500 0px 0px 0.8em;
+    }
+
+    100% {
+        background-color: transparent;
+    }
+}
+
+.blink-in {
+    animation: blink-in 1s infinite;
+    background-color: rgba(220, 223, 12, 0.9);
+}
+
+@keyframes blink-in {
+    0% {
+        background-color: rgba(220, 223, 12, 0.9);
+        box-shadow: #dfff00 0px 0px 0.8em;
+    }
+
+    100% {
+        background-color: transparent;
+    }
+}
+
+.blink-out {
+    animation: blink-out 1s infinite;
+    background-color: rgba(12, 146, 223, 0.9);
+    /* box-shadow: #1e90ff 0px 0px 0.8em; */
+}
+
+@keyframes blink-out {
+    0% {
+        background-color: rgba(12, 146, 223, 0.9);
+        box-shadow: #1e90ff 0px 0px 0.8em;
+    }
+
+    100% {
+        background-color: transparent;
+    }
+}

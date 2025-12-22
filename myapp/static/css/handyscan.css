@@ -1,0 +1,61 @@
+        body {
+            background: #111;
+            color: #fff;
+            min-height: 100vh;
+            max-width: 720px;
+            margin: auto;
+        }
+
+        .section {
+            background: #222;
+            border-radius: 10px;
+            margin: 10px 0;
+            padding: 16px;
+        }
+
+        .camera-btn {
+            width: 40px;
+            height: 40px;
+            background: #000;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.5em;
+            margin-right: 8px;
+        }
+
+        .custom-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 8px;
+            background: #222;
+            border-radius: 16px;
+            padding: 16px;
+            margin-top: 12px;
+            border: 2px solid #4fc3f7;
+        }
+
+        .grid-cell {
+            background: #444;
+            border-radius: 8px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.1em;
+            position: relative;
+        }
+
+        .selected {
+            border: 2px solid #f8bbd0;
+            background: #333;
+        }
+
+        .highlight {
+            background: linear-gradient(90deg, #ffd54f 50%, #ffb300 100%);
+            color: #222;
+            font-weight: bold;
+        }
