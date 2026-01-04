@@ -11,9 +11,17 @@ main = Blueprint('main', __name__)
 def index():
     return render_template('index.html')
 
+
 @main.route('/handyscan')
 def handyscan():
-    return render_template('handyscan.html')
+    # ProductNumberモデルから削除フラグが立っていない品番を取得
+    obj_product_numbers = ProductNumber.query.filter_by(is_deleted=False).all()
+    product_numbers = [pn.to_dict() for pn in obj_product_numbers]
+
+    obj_cell_stock_status = CellStockStatus.query.all()
+    cell_stock_statuses = [cell_stock_status.to_dict()
+                           for cell_stock_status in obj_cell_stock_status]
+    return render_template('handyscan.html',product_numbers=product_numbers, cell_stock_statuses=cell_stock_statuses)
 
 
 @main.route('/pn_ctrl')
@@ -69,7 +77,8 @@ def inout_map():
     obj_shelfs = Shelf.query.all()
     raw_shelfs = [shelf.to_dict() for shelf in obj_shelfs]
     shelfs = shelfs_with_class(raw_shelfs)
-    obj_product_numbers = ProductNumber.query.filter_by(is_deleted=False).order_by((ProductNumber.serial_no)).all()
+    obj_product_numbers = ProductNumber.query.filter_by(
+        is_deleted=False).order_by((ProductNumber.serial_no)).all()
     product_numbers = [pn.to_dict() for pn in obj_product_numbers]
 
     obj_cells = Cell.query.all()
@@ -100,11 +109,11 @@ def inout_logview():
     product_numbers = [pn.to_dict() for pn in obj_product_numbers]
     obj_cells = Cell.query.all()
     cells = [cell.to_dict() for cell in obj_cells]
-    obj_inoutlogs =InoutLog.query.order_by(desc(InoutLog.id)).limit(300).all()
+    obj_inoutlogs = InoutLog.query.order_by(desc(InoutLog.id)).limit(300).all()
     inoutlogs = [inoutlog.to_dict() for inoutlog in obj_inoutlogs]
-    
-    return render_template('inout_logview.html',shelfs=shelfs,cells=cells,product_numbers=product_numbers,inoutlogs=inoutlogs)
-    
+
+    return render_template('inout_logview.html', shelfs=shelfs, cells=cells, product_numbers=product_numbers, inoutlogs=inoutlogs)
+
 
 @main.route('/view_map')
 def view_map():
@@ -114,7 +123,8 @@ def view_map():
     obj_shelfs = Shelf.query.all()
     raw_shelfs = [shelf.to_dict() for shelf in obj_shelfs]
     shelfs = shelfs_with_class(raw_shelfs)
-    obj_product_numbers = ProductNumber.query.filter_by(is_deleted=False).order_by((ProductNumber.serial_no)).all()
+    obj_product_numbers = ProductNumber.query.filter_by(
+        is_deleted=False).order_by((ProductNumber.serial_no)).all()
     product_numbers = [pn.to_dict() for pn in obj_product_numbers]
 
     obj_cells = Cell.query.all()

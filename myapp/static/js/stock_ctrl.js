@@ -22,8 +22,6 @@ function stock_ctrl(cell_id, product_number, max_qty, stock_qty) {
     popPnTitle.textContent = product_number.product_no;
   }
 
-
-
   const popStockTitle = document.createElement('div');
   popStockTitle.className = "pop-stock-title";
   
