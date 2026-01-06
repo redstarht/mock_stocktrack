@@ -11,7 +11,8 @@ function searchProductDetail(){
     const bcdElm = document.getElementById("bcd-search-btn")
     bcdElm.document.addEventListener("click",function(){
         const bcdInfo = document.getElementById("bcd-search-btn")
-        bcdInfo.value.trim() : null;
+        bcdInfo.value.trim();
+        
 
 
 

@@ -86,6 +86,26 @@ def shelfs_with_class(shelfs):
     return shelfs_with_class
 
 
+def rec_shelf_with_class(shelf):
+    column_class = {
+        # "cell-grid"はデフォルト値
+        1: "cell-grid column1",
+        4: "cell-grid column4",
+    }
+
+    row_class = {
+        # "cell-stock-btn"はデフォルト値
+        4: "cell-stock-btn row4",
+        5: "cell-stock-btn row5"
+    }
+
+    # 新しい辞書を作成して返す（元のshelfを変更しない場合）
+    return {
+        **shelf,
+        "column_class": column_class.get(shelf["column"], "cell-grid"),
+        "row_class": row_class.get(shelf["row"], "cell-stock-btn")
+    }
+
 def reload_cell_stock_status():
     # 更新データの再取得
     obj_cell_stock_status = CellStockStatus.query.all()

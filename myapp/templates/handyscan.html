@@ -76,18 +76,88 @@
             </div>
             <!-- 棚マップ（グリッド） -->
             <div class="shelf-section">
-                <div class="shelf-container">
-                    <div class="text-center ">C</div>
-                    <div class="shelf-grid">
-                        <div class="grid-cell selected"></div>
-                        <div class="grid-cell"></div>
-                        <div class="grid-cell"></div>
-                        <div class="grid-cell"></div>
-                        <div class="grid-cell"></div>
-                        <div class="grid-cell"></div>
-                        <div class="grid-cell highlight">636<br>5640</div>
-                        <div class="grid-cell"></div>
-                        <div class="grid-cell"></div>
+                <div class="shelf-container" id="shelf-container">
+                    <div class="shelf-label ">C</div>
+                    <div class="cell-grid" id="cell-grid">
+                        <div class="cell-container">
+                            <div class="stack">
+                                <div class="stack-condition"></div>
+                                <div class="stack-condition"></div>
+                                <div class="stack-condition"></div>
+                            </div>
+                            <div class="cell-box">
+                                <button class="cell-stock-btn">
+                                    <i class="serial-lbl">あ</i>
+                                    <i class="length-lbl">い</i>
+                                </button>    
+                            </div>
+                        </div>
+                        <div class="cell-container">
+                            <div class="stack">
+                                <div class="stack-condition"></div>
+                                <div class="stack-condition"></div>
+                                <div class="stack-condition"></div>
+                            </div>
+                            <div class="cell-box">
+                                <button class="cell-stock-btn">
+                                    <i class="serial-lbl"></i>
+                                    <i class="length-lbl"></i>
+                                </button>    
+                            </div>
+                        </div>
+                        <div class="cell-container">
+                            <div class="stack">
+                                <div class="stack-condition"></div>
+                                <div class="stack-condition"></div>
+                                <div class="stack-condition"></div>
+                            </div>
+                            <div class="cell-box">
+                                <button class="cell-stock-btn">
+                                    <i class="serial-lbl"></i>
+                                    <i class="length-lbl"></i>
+                                </button>    
+                            </div>
+                        </div>
+                        <div class="cell-container">
+                            <div class="stack">
+                                <div class="stack-condition"></div>
+                                <div class="stack-condition"></div>
+                                <div class="stack-condition"></div>
+                            </div>
+                            <div class="cell-box">
+                                <button class="cell-stock-btn">
+                                    <i class="serial-lbl"></i>
+                                    <i class="length-lbl"></i>
+                                </button>    
+                            </div>
+                        </div>
+                        <div class="cell-container">
+                            <div class="stack">
+                                <div class="stack-condition"></div>
+                                <div class="stack-condition"></div>
+                                <div class="stack-condition"></div>
+                            </div>
+                            <div class="cell-box">
+                                <button class="cell-stock-btn">
+                                    <i class="serial-lbl"></i>
+                                    <i class="length-lbl"></i>
+                                </button>    
+                            </div>
+                        </div>
+                        <div class="cell-container">
+                            <div class="stack">
+                                <div class="stack-condition"></div>
+                                <div class="stack-condition"></div>
+                                <div class="stack-condition"></div>
+                            </div>
+                            <div class="cell-box">
+                                <button class="cell-stock-btn">
+                                    <i class="serial-lbl"></i>
+                                    <i class="length-lbl"></i>
+                                </button>    
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
@@ -98,8 +168,8 @@
     <script type="module" src="../static/js/inout_logview/render_log.js"></script>
 
     <script>
-        const pn_list = {{ product_numbers| tojson }};
-        const cell_stock_statuses = {{ cell_stock_statuses| tojson }};
+        const pn_list = {{ product_numbers | tojson }};
+        const cell_stock_statuses = {{ cell_stock_statuses | tojson }};
 
         document.addEventListener("DOMContentLoaded", function () {
             const maxBlocks = 3

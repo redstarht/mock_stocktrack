@@ -34,3 +34,23 @@ export async function get_prod_num_data() {
         throw error; 
     }
 }
+
+
+
+export async function get_shelf_info(cell_id) {
+    try {
+        const response = await fetch(`/api/shelf_info?cell_id=${cell_id}`);
+        if (!response.ok) {
+            throw new Error("✖：取得エラー");
+        }
+
+        const result = await response.json();
+        // console.log("取得完了:", result);
+        return result;
+
+    } catch (error) {
+        console.error("取得エラー:", error);
+        alert("取得エラーです");
+        throw error; 
+    }
+}

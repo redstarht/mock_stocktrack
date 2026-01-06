@@ -19,8 +19,8 @@ import datetime
 import pytz
 from .data_management import check_del_pn_ctrl, check_stock_status, convert_to_int_set, check_del_alwStorRec, convert_float_value
 from logging import getLogger
-from sqlalchemy import desc,between
-from .services import reload_cell_stock_status
+from sqlalchemy import desc, between
+from .services import reload_cell_stock_status, rec_shelf_with_class
 
 logger = getLogger()
 
@@ -335,4 +335,24 @@ def order_prod_num():
     product_numbers = [pn.to_dict() for pn in obj_product_numbers]
 
     return jsonify(product_numbers)
+
+
+@api.route("/api/shelf_info")
+def order_shelf_info():
+    '''
+    Note
+    --------------
+    cellテーブルの情報を
+    フロント側で利用するcssクラス名をつけて返します
+    '''
+    cell_id = request.args.get('cell_id',"")
+    if cell_id:
+        obj_cells = Cell.query.filter_by(id=cell_id).first()
+        obj_shelf = Shelf.query.filter_by(id=obj_cells.shelf_id).first()
+        raw_shelf = obj_shelf.to_dict() if obj_shelf else None
+        shelf_info = rec_shelf_with_class(raw_shelf)
+        return shelf_info
+    else:
+        pass
+
 
