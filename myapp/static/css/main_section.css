@@ -57,8 +57,9 @@ textarea {
     display: grid;
     flex: 1;
     gap: 1.5rem;
-    grid-template-columns: repeat(3, 1fr);
-    /* 3列 */
+    
+    grid-template-columns: repeat(3, 1fr); /* 3列で改行 */
+    
     /* grid-template-rows: repeat(auto, auto); */
     width: 100%;
     max-width: 100vw;

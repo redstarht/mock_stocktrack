@@ -39,7 +39,7 @@
                     <!-- <button class="camera-btn">📷</button> -->
                 </div>
                 <div class="form-container">
-                    <input id="bcd-search-btn" type="text" class="form-control me-2" placeholder="かんばんバーコード読取">
+                    <input id="bcd-search-form" type="text" class="form-control me-2" placeholder="かんばんバーコード読取">
                     <button id="bcd-search-btn" class="btn btn-primary">検索</button>
                 </div>
             </div>
@@ -48,21 +48,26 @@
         <div class="function-section">
             <div class="control-section flex-column flex-center">
                 <div class="label-container">
-                    <div class="item-detail-box flex-center">
-                        <span class="item-detail">
+                    <div id="item-detail-box" class="item-detail-box flex-center">
+                        <!-- <label class="item-detail">
                             636 / SMNLBH20TK / 31.8 / 1.6 / 703.4 / 5640
-                        </span>
+                        </label> -->
                     </div>
-                    <div class="item-count-box flex-center">
-                        <span class="item-count">
-                            2/3
+                    <div id="item-count-box" class="item-count-box flex-center">
+                        <span id="item-count"class="item-count">
+                            0
+                        </span>
+                        <span id="item-slash"class="item-slash">
+                            /
+                        </span>
+                        <span id="item-max"class="item-max">
+                            3
                         </span>
                     </div>
                 </div>
                 <div class="stock-container d-flex flex-row flex-center justify-content-center ">
                     <button class="minus-btn btn btn-danger">-</button>
                     <div class="flex-row flex-center gauge-container gap-1 m-1">
-                        <div class="gauge-block"></div>
                         <div class="gauge-block"></div>
                         <div class="gauge-block"></div>
                         <div class="gauge-block"></div>
@@ -165,8 +170,9 @@
 
         </div>
     </div>
-    <script type="module" src="../static/js/inout_logview/render_log.js"></script>
 
+    <script type="module" src="../static/js/handyscan/handyscan.js"></script>
+    <!-- <script type="module" src="../static/js/handyscan/shelfbuild.js"></script> -->
     <script>
         const pn_list = {{ product_numbers | tojson }};
         const cell_stock_statuses = {{ cell_stock_statuses | tojson }};

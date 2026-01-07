@@ -86,7 +86,7 @@ def shelfs_with_class(shelfs):
     return shelfs_with_class
 
 
-def rec_shelf_with_class(shelf):
+def rec_shelf_with_class(shelf,contain_cell_id):
     column_class = {
         # "cell-grid"はデフォルト値
         1: "cell-grid column1",
@@ -103,7 +103,8 @@ def rec_shelf_with_class(shelf):
     return {
         **shelf,
         "column_class": column_class.get(shelf["column"], "cell-grid"),
-        "row_class": row_class.get(shelf["row"], "cell-stock-btn")
+        "row_class": row_class.get(shelf["row"], "cell-stock-btn"),
+        "cellIds":contain_cell_id
     }
 
 def reload_cell_stock_status():

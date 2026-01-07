@@ -348,9 +348,15 @@ def order_shelf_info():
     cell_id = request.args.get('cell_id',"")
     if cell_id:
         obj_cells = Cell.query.filter_by(id=cell_id).first()
+        obj_target_cells = Cell.query.filter_by(shelf_id=obj_cells.shelf_id).order_by(Cell.id.asc()).all()
+        contain_cell_id = []
+        
+        for obj_target_cell in obj_target_cells:
+            contain_cell_id.append(obj_target_cell.id)
+            
         obj_shelf = Shelf.query.filter_by(id=obj_cells.shelf_id).first()
         raw_shelf = obj_shelf.to_dict() if obj_shelf else None
-        shelf_info = rec_shelf_with_class(raw_shelf)
+        shelf_info = rec_shelf_with_class(raw_shelf,contain_cell_id)
         return shelf_info
     else:
         pass
